@@ -1,2 +1,6 @@
+COMMIT_M := $(shell date)
+COMMIT_D := $(shell cat .TODO)
+
 all:
-	git commit -m <(date)
+	echo $(COMMIT_M)
+	git commit -m "$(COMMIT_M)" -m 
