@@ -1,5 +1,6 @@
-COMMIT_M := $(shell date)
+COMMIT_D := $(shell date)
+COMMIT_U := ${USER}
 
 all:
-	echo $(COMMIT_M)
-	git commit -F .TODO
+	cp .TODO .TODO.tmp
+	sed -i '1s/^/$(COMMIT_D) by $(COMMIT_U)\n/' .TODO.tmp
