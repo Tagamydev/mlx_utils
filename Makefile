@@ -6,7 +6,7 @@
 #    By: samusanc <samusanc@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/05 01:22:18 by samusanc          #+#    #+#              #
-#    Updated: 2024/08/08 21:04:49 by samusanc         ###   ########.fr        #
+#    Updated: 2024/08/08 22:03:14 by samusanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,22 +55,22 @@ submodules: .submodule-init #.libft
 	@git submodule update --recursive --remote
 	@touch .submodule-init
 
-#.libft:
-#	@make -sC ./libft/ all
-#	@touch .libft
+.ft_math:
+	@make -sC ./ft_math/ all
+	@touch .ft_math
 
 #===================================================================================================================
 #									Git Submodule Workflow 4 ADD COMMIT and PUSH
 #===================================================================================================================
 
-add: .submodule-init fclean
-#	@make -sC ./libft/ add
+add: fclean .submodule-init
+	@make -sC ./ft_math/ add
 	@git pull
 	@git add .
 
 #===================================================================================================================
 
-.mandatory: .mlx $(OBJS)
+.mandatory: .ft_math .mlx $(OBJS)
 	ar rcs $(NAME) $(OBJS) -L./minilibx-linux/ -lmlx -L/usr/include/../lib -lXext -lX11 -lm -lbsd
 	@touch .mandatory
 
@@ -82,7 +82,7 @@ re: fclean all
 
 fclean: clean
 	@echo "cleaning binaries..."
-#	@make -sC ./libft/ fclean
+	@make -sC ./ft_math/ fclean
 	@rm -f $(NAME)
 	@rm -rf .mandatory
 	@rm -rf .submodule-init
@@ -95,7 +95,7 @@ clean: .clean
 .clean:
 	@echo "cleaning objects..."
 	@make -sC ./minilibx-linux/ clean
-#	@make -sC ./libft/ clean
+	@make -sC ./ft_math/ clean
 	@rm -f $(OBJS)
 	@rm -rf $(O_DIR)
 	@touch .clean
