@@ -6,7 +6,7 @@
 #    By: samusanc <samusanc@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/05 01:22:18 by samusanc          #+#    #+#              #
-#    Updated: 2024/08/09 18:18:47 by samusanc         ###   ########.fr        #
+#    Updated: 2024/08/09 18:56:06 by samusanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,7 +75,7 @@ add: fclean .submodule-init
 #===================================================================================================================
 
 .mandatory: .T-Engine .mlx $(OBJS)
-	ar rcs $(NAME) $(OBJS) -L./minilibx-linux/ -lmlx -L/usr/include/../lib -lXext -lX11 -lm -lbsd
+	ar rcs $(NAME) $(OBJS) 
 	@touch .mandatory
 
 .mlx:
