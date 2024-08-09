@@ -6,21 +6,23 @@
 /*   By: samusanc <samusanc@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 16:56:01 by samusanc          #+#    #+#             */
-/*   Updated: 2024/08/09 16:56:15 by samusanc         ###   ########.fr       */
+/*   Updated: 2024/08/09 18:33:25 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mlx_utils.h"
 
-void	ft_putPixel(t_img *img, int x, int y, int color)
+void	ft_putPixel(t_img *img, t_point pixel, t_resolution window_res)
 {
-	char	*dst;
+	char		*dst;
+	t_resolution	wndR;
 
-	if (x >= 0 && y >= 0 && x < img->width && \
-	y < img->height && y < HEIGHT && x < WIDTH)
+	wndR = window_res;
+	if (pixel.px >= 0 && pixel.py >= 0 && pixel.px < img->width && \
+	pixel.py < img->height && pixel.py < wndR.height && pixel.px < wndR.width)
 	{
-		dst = img->data_addr + ((y * img->line_size) + \
-		((x * (img->bits_per_pixel / 8))));
-		*(unsigned int *)dst = color;
+		dst = (float)img->data_addr + ((pixel.py * img->line_size) + \
+		((pixel.px * (img->bits_per_pixel / 8))));
+		*(unsigned int *)dst = pixel.color.hex;
 	}
 }
