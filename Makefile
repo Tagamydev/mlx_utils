@@ -6,7 +6,7 @@
 #    By: samusanc <samusanc@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/05 01:22:18 by samusanc          #+#    #+#              #
-#    Updated: 2024/08/09 17:45:23 by samusanc         ###   ########.fr        #
+#    Updated: 2024/08/09 18:07:42 by samusanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,7 +94,7 @@ fclean: clean
 clean: .clean
 	@echo "objects removed!"
 
-.clean: .submodule-init
+.clean: .mlx .submodule-init
 	@echo "cleaning objects..."
 	@make -sC ./minilibx-linux/ clean
 	@make -sC ./T-Engine/ clean
