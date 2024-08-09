@@ -1,7 +1,6 @@
 
 #ifndef IMAGE_H
 # define IMAGE_H
-# include "color.h"
 
 
 typedef struct s_img{

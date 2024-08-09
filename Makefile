@@ -6,7 +6,7 @@
 #    By: samusanc <samusanc@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/05 01:22:18 by samusanc          #+#    #+#              #
-#    Updated: 2024/08/09 16:39:01 by samusanc         ###   ########.fr        #
+#    Updated: 2024/08/09 16:59:56 by samusanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,11 @@ COMMIT_D	:= $(shell date)
 COMMIT_U	:= ${USER}
 CFLAGS		= -Wall -Wextra -Werror
 INC			= -I./includes/
+INC			+= -I./ft_math/
 INC			+= -I/usr/include -O3 -I./minilibx-linux/ 
 CC			= gcc $(CFLAGS)
 
-SRCS		= ./screen/screen.c
+SRCS		= ./ft_putPixel.c
 O_DIR		= ./objects/
 OBJS		= $(addprefix $(O_DIR)/, $(SRCS:.c=.o))
 
