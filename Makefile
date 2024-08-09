@@ -6,7 +6,7 @@
 #    By: samusanc <samusanc@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/05 01:22:18 by samusanc          #+#    #+#              #
-#    Updated: 2024/08/09 18:07:42 by samusanc         ###   ########.fr        #
+#    Updated: 2024/08/09 18:18:47 by samusanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,11 @@ COMMIT_D	:= $(shell date)
 COMMIT_U	:= ${USER}
 CFLAGS		= -Wall -Wextra -Werror
 INC			= -I./includes/
-INC			+= -I./ft_math/
+INC			+= -I./T-Engine/
+INC			+= -I./T-Engine/includes/
+INC			+= -I./T-Engine/ft_math/
 INC			+= -I/usr/include -O3 -I./minilibx-linux/ 
+
 CC			= gcc $(CFLAGS)
 
 SRCS		= ./ft_putPixel.c

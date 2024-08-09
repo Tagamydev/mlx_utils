@@ -6,13 +6,13 @@
 /*   By: samusanc <samusanc@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 16:56:50 by samusanc          #+#    #+#             */
-/*   Updated: 2024/08/09 17:06:21 by samusanc         ###   ########.fr       */
+/*   Updated: 2024/08/09 18:10:52 by samusanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_MLX_UTILS_H
 # define FT_MLX_UTILS_H
-# include "ft_math.h"
+# include "T_Engine.h"
 # include "mlx.h"
 # include "image.h"
 
