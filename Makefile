@@ -6,7 +6,7 @@
 #    By: samusanc <samusanc@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/05 01:22:18 by samusanc          #+#    #+#              #
-#    Updated: 2024/08/09 16:59:56 by samusanc         ###   ########.fr        #
+#    Updated: 2024/08/09 17:42:42 by samusanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,22 +56,22 @@ submodules: .submodule-init #.libft
 	@git submodule update --recursive --remote
 	@touch .submodule-init
 
-.ft_math:
-	@make -sC ./ft_math/ all
-	@touch .ft_math
+.T-Engine:
+	@make -sC ./T-Engine/ all
+	@touch .T-Engine
 
 #===================================================================================================================
 #									Git Submodule Workflow 4 ADD COMMIT and PUSH
 #===================================================================================================================
 
 add: fclean .submodule-init
-	@make -sC ./ft_math/ add
+	@make -sC ./T-Engine/ add
 	@-git pull
 	@git add .
 
 #===================================================================================================================
 
-.mandatory: .ft_math .mlx $(OBJS)
+.mandatory: .T-Engine .mlx $(OBJS)
 	ar rcs $(NAME) $(OBJS) -L./minilibx-linux/ -lmlx -L/usr/include/../lib -lXext -lX11 -lm -lbsd
 	@touch .mandatory
 
@@ -83,12 +83,13 @@ re: fclean all
 
 fclean: clean
 	@echo "cleaning binaries..."
-	@make -sC ./ft_math/ fclean
+	@make -sC ./T-Engine/ fclean
 	@rm -f $(NAME)
 	@rm -rf .mandatory
 	@rm -rf .submodule-init
 	@rm -rf .clean
-	@rm -rf .libft
+	@rm -rf .mlx
+	@rm -rf .T-Engine
 
 clean: .clean
 	@echo "objects removed!"
@@ -96,7 +97,7 @@ clean: .clean
 .clean:
 	@echo "cleaning objects..."
 	@make -sC ./minilibx-linux/ clean
-	@make -sC ./ft_math/ clean
+	@make -sC ./T-Engine/ clean
 	@rm -f $(OBJS)
 	@rm -rf $(O_DIR)
 	@touch .clean

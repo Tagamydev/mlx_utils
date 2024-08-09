@@ -1,0 +1,3 @@
+[submodule "T-Engine"]
+	path = T-Engine
+	url = https://github.com/Tagamydev/T-Engine.git
