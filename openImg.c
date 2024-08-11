@@ -12,13 +12,13 @@
 
 #include "mlx_utils.h"
 
-t_img	*freeOpenImg(t_img *img)
+static t_img	*freeOpenImg(t_img *img)
 {
 	freeImg(img);
 	return (NULL);
 }
 
-t_img	*openImgUtils(t_img *img, void *mlx, char *path)
+static t_img	*openImgUtils(t_img *img, void *mlx, char *path)
 {
 	char	*tmp;
 
