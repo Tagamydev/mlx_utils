@@ -40,11 +40,14 @@ INC			+= -I/usr/include -O3 -I./minilibx-linux/
 SUBMODLIB	= ./libft/libft.a
 SUBMODLIB	+= ./T-Engine/libT_Engine.a
 
+# SUBMODULES LINKER FLAG LIBRARIES
+SUBMODLINK	= -L./libft/ -lft
+
 #================================= GCC ==================================#
 
 # GCC WITH LIBS AND INCLUDES
 CFLAGS		= -Wall -Wextra -Werror
-CC			= gcc $(CFLAGS) $(INC)
+CC			= gcc $(CFLAGS) $(INC) $(SUBMODLINK)
 
 # SRCS
 SRCS		= \
