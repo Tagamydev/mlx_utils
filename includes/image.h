@@ -29,6 +29,6 @@ typedef struct s_img{
 }				t_img;
 
 void	freeImg(t_img *img);
-t_img	*ft_open_img(void *mlx, char *path);
+t_img	*openImg(void *mlx, char *path);
 
 #endif

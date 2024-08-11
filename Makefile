@@ -114,7 +114,13 @@ push: commit
 #======================= MANDATORY AND BONUS =========================#
 
 .mandatory: .mlx submodules $(OBJS)
-	ar rcs $(NAME) $(OBJS) $(SUBMODLIB)
+	@rm -rf OBJ_TMP_FOLDER
+	@mkdir -p OBJ_TMP_FOLDER
+	@$(foreach EXE,$(SUBMODLIB), \
+		ar --output=OBJ_TMP_FOLDER -x $(EXE) ; \
+	)
+	ar rcs $(NAME) $(OBJS) ./OBJ_TMP_FOLDER/*.o
+	@rm -rf OBJ_TMP_FOLDER
 	@touch .mandatory
 
 .mlx:
