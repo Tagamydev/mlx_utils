@@ -14,8 +14,8 @@
 # define FT_MLX_UTILS_H
 # include "T_Engine.h"
 # include "mlx.h"
-# include "image.h"
 # include "libft.h"
+# include "image.h"
 
 void	putPixel(t_img *img, t_point pixel, t_resolution window_res);
 

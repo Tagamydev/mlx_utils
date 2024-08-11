@@ -115,6 +115,8 @@ fclean: clean
 	@rm -rf .clean
 	@rm -rf .mlx
 	@rm -rf .T-Engine
+	@rm -rf .libft
+	@rm -rf .ft_math
 
 clean: .clean
 	@echo "objects removed!"
