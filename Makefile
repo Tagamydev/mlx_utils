@@ -79,7 +79,6 @@ submodules: .submodule-init .libft .T-Engine
 #===================================================================================================================
 
 add: fclean .submodule-init
-	@make -sC ./T-Engine/ add
 	@-git pull
 	@git add .
 
