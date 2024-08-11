@@ -96,7 +96,7 @@ push: commit
 #===================================================================================================================
 
 .mandatory: .T-Engine .mlx $(OBJS)
-	ar rcs $(NAME) $(OBJS) 
+	ar rcs $(NAME) $(OBJS) ./libft/libft.a
 	@touch .mandatory
 
 .mlx:
