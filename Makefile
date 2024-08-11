@@ -6,7 +6,7 @@
 #    By: samusanc <samusanc@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/05 01:22:18 by samusanc          #+#    #+#              #
-#    Updated: 2024/08/10 22:17:51 by samusanc         ###   ########.fr        #
+#    Updated: 2024/08/11 12:52:26 by samusanc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,17 +18,24 @@ INC			= -I./includes/
 INC			+= -I./T-Engine/
 INC			+= -I./T-Engine/includes/
 INC			+= -I./T-Engine/ft_math/
+INC			+= -I./libft/
+
 INC			+= -I/usr/include -O3 -I./minilibx-linux/ 
 
+LIBFT		= -L./libft/ -lft 
 CC			= gcc $(CFLAGS)
 
-SRCS		= ./ft_putPixel.c
+SRCS		= \
+		./putPixel.c \
+		./openImg.c \
+		./freeImg.c
+
 O_DIR		= ./objects/
 OBJS		= $(addprefix $(O_DIR)/, $(SRCS:.c=.o))
 
 $(O_DIR)/%.o: %.c
 	@mkdir -p $(@D)
-	$(CC) $(INC) -g -c $< -o $(O_DIR)/$(<:.c=.o)
+	$(CC) $(LIBFT) $(INC) -g -c $< -o $(O_DIR)/$(<:.c=.o)
 	@echo ""
 
 all: title submodules $(NAME)
@@ -51,7 +58,7 @@ title:
 #												Git Submodule Workflow
 #===================================================================================================================
 
-submodules: .submodule-init #.libft
+submodules: .submodule-init .libft .T-Engine
 	@echo "All submodules loaded..."
 
 .submodule-init:
@@ -62,6 +69,10 @@ submodules: .submodule-init #.libft
 .T-Engine:
 	@make -sC ./T-Engine/ all
 	@touch .T-Engine
+
+.libft:
+	@make -sC ./libft/ all
+	@touch .libft
 
 #===================================================================================================================
 #									Git Submodule Workflow 4 ADD COMMIT and PUSH
@@ -98,6 +109,7 @@ re: fclean all
 fclean: clean
 	@echo "cleaning binaries..."
 	@make -sC ./T-Engine/ fclean
+	@make -sC ./libft/ fclean
 	@rm -f $(NAME)
 	@rm -rf .mandatory
 	@rm -rf .submodule-init
@@ -112,6 +124,7 @@ clean: .clean
 	@echo "cleaning objects..."
 	@make -sC ./minilibx-linux/ clean
 	@make -sC ./T-Engine/ clean
+	@make -sC ./libft/ clean
 	@rm -f $(OBJS)
 	@rm -rf $(O_DIR)
 	@touch .clean

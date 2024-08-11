@@ -12,22 +12,45 @@
 
 #include "mlx_utils.h"
 
-/*
-	pixelI = pixel index;
-*/
-void	ft_putPixel(t_img *img, t_point pixel, t_resolution window_res)
+t_img	*freeOpenImg(t_img *img)
 {
-	unsigned int	*dst;
-	float		pixelI;
-	t_resolution	wndR;
+	freeImg(img);
+	return (NULL);
+}
 
-	wndR = window_res;
-	if (pixel.px >= 0 && pixel.py >= 0 && pixel.px < img->width && \
-	pixel.py < img->height && pixel.py < wndR.height && pixel.px < wndR.width)
-	{
-		pixelI = ((pixel.py * img->line_size) + \
-		((pixel.px * (img->bits_per_pixel / 8))));
-		dst = (unsigned int *)(img->data_addr + (int)pixelI);
-		*dst = pixel.color.hex;
-	}
+t_img	*openImgUtils(t_img *img, void *mlx, char *path)
+{
+	char	*tmp;
+
+	tmp = NULL;
+	img->img = mlx_xpm_file_to_image(mlx, path, &img->width, &img->height);
+	if (!img->img)
+		return (freeOpenImg(img));
+	img->data_addr = mlx_get_data_addr(img->img, &(img->bits_per_pixel),
+			&(img->line_size), &(img->endian));
+	if (!img->data_addr)
+		return (freeOpenImg(img));
+	img->pixel_addr = (int *)mlx_get_data_addr(img->img, &(img->bits_per_pixel),
+			&(img->line_size), &(img->endian));
+	if (!img->pixel_addr)
+		return (freeOpenImg(img));
+	tmp = ft_strdup(path);
+	if (!tmp)
+		return (freeOpenImg(img));
+	return (img);
+}
+
+t_img	*openImg(void *mlx, char *path)
+{
+	t_img	*img;
+
+	if (!path)
+		return (NULL);
+	img = malloc(sizeof(t_img) * 1);
+	if (!img)
+		return (NULL);
+	ft_bzero(img, sizeof(t_img));
+	if (!openImgUtils(img, mlx, path))
+		return (NULL);
+	return (img);
 }
