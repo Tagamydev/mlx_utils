@@ -54,6 +54,8 @@ SRCS		= \
 		./putPixel.c \
 		./openImg.c \
 		./drawLine.c \
+		./initImg.c \
+		./fillImg.c \
 		./freeImg.c
 
 O_DIR		= ./objects/
