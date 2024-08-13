@@ -16,16 +16,15 @@
 
 
 typedef struct s_img{
-	char	*path;
-	char	*data_addr;
-	void	*img;
-	int		*pixel_addr;
-	int		bits_per_pixel;
-	int		line_size;
-	int		endian;
-	int		width;
-	int		height;
-	float	alpha;
+	char			*path;
+	char			*data_addr;
+	void			*img;
+	int				*pixel_addr;
+	int				bits_per_pixel;
+	int				line_size;
+	int				endian;
+	t_resolution	resolution;
+	float			alpha;
 }				t_img;
 
 void	freeImg(t_img *img);

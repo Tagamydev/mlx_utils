@@ -15,15 +15,13 @@
 /*
 	pixelI = pixel index;
 */
-void	putPixel(t_img *img, t_point pixel, t_resolution window_res)
+void	putPixel(t_img *img, t_point pixel)
 {
 	unsigned int	*dst;
 	float		pixelI;
-	t_resolution	wndR;
 
-	wndR = window_res;
-	if (pixel.px >= 0 && pixel.py >= 0 && pixel.px < img->width && \
-	pixel.py < img->height && pixel.py < wndR.height && pixel.px < wndR.width)
+	if (pixel.px >= 0 && pixel.py >= 0 && pixel.px < img->resolution.width && \
+	pixel.py < img->resolution.height && pixel.py)
 	{
 		pixelI = ((pixel.py * img->line_size) + \
 		((pixel.px * (img->bits_per_pixel / 8))));

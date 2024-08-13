@@ -53,6 +53,7 @@ CC			= gcc $(CFLAGS) $(INC) $(SUBMODLINK)
 SRCS		= \
 		./putPixel.c \
 		./openImg.c \
+		./drawLine.c \
 		./freeImg.c
 
 O_DIR		= ./objects/

@@ -23,7 +23,7 @@ static t_img	*openImgUtils(t_img *img, void *mlx, char *path)
 	char	*tmp;
 
 	tmp = NULL;
-	img->img = mlx_xpm_file_to_image(mlx, path, &img->width, &img->height);
+	img->img = mlx_xpm_file_to_image(mlx, path, (int *)&img->resolution.width, (int *)&img->resolution.height);
 	if (!img->img)
 		return (freeOpenImg(img));
 	img->data_addr = mlx_get_data_addr(img->img, &(img->bits_per_pixel),
