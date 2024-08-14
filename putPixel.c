@@ -13,19 +13,19 @@
 #include "mlx_utils.h"
 
 /*
-	pixelI = pixel index;
+	pixel_i = pixel index;
 */
-void	putPixel(t_img *img, t_point pixel)
+void	put_pixel(t_img *img, t_point pixel)
 {
 	unsigned int	*dst;
-	float		pixelI;
+	float		pixel_i;
 
 	if (pixel.px >= 0 && pixel.py >= 0 && pixel.px < img->resolution.width && \
 	pixel.py < img->resolution.height && pixel.py)
 	{
-		pixelI = ((pixel.py * img->line_size) + \
+		pixel_i = ((pixel.py * img->line_size) + \
 		((pixel.px * (img->bits_per_pixel / 8))));
-		dst = (unsigned int *)(img->data_addr + (int)pixelI);
+		dst = (unsigned int *)(img->data_addr + (int)pixel_i);
 		*dst = pixel.color.hex;
 	}
 }

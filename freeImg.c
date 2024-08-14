@@ -12,7 +12,7 @@
 
 #include "mlx_utils.h"
 
-void	freeImg(t_img *img)
+void	free_img(t_img *img)
 {
 	if (img)
 	{

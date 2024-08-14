@@ -12,7 +12,7 @@
 
 #include "mlx_utils.h"
 
-t_img	*initImg(void *mlx, t_resolution res)
+t_img	*init_img(void *mlx, t_resolution res)
 {
 	t_img	*img;
 
@@ -24,6 +24,6 @@ t_img	*initImg(void *mlx, t_resolution res)
 	&(img->line_size), &(img->endian));
 	img->alpha = 1;
 	img->resolution = res;
-	fillImg(img, color(black));
+	fill_img(img, color(black));
 	return (img);
 }

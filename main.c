@@ -14,5 +14,5 @@
 
 int	main()
 {
-	openImg(NULL, NULL);
+	open_img(NULL, NULL);
 }

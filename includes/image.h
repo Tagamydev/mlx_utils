@@ -27,9 +27,9 @@ typedef struct s_img{
 	float			alpha;
 }				t_img;
 
-void	freeImg(t_img *img);
-void	fillImg(t_img *img, t_color color);
-t_img	*initImg(void *mlx, t_resolution res);
-t_img	*openImg(void *mlx, char *path);
+void	free_img(t_img *img);
+void	fill_img(t_img *img, t_color color);
+t_img	*init_img(void *mlx, t_resolution res);
+t_img	*open_img(void *mlx, char *path);
 
 #endif

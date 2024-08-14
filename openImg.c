@@ -12,35 +12,35 @@
 
 #include "mlx_utils.h"
 
-static t_img	*freeOpenImg(t_img *img)
+static t_img	*free_open_img(t_img *img)
 {
-	freeImg(img);
+	free_img(img);
 	return (NULL);
 }
 
-static t_img	*openImgUtils(t_img *img, void *mlx, char *path)
+static t_img	*open_img_utils(t_img *img, void *mlx, char *path)
 {
 	char	*tmp;
 
 	tmp = NULL;
 	img->img = mlx_xpm_file_to_image(mlx, path, (int *)&img->resolution.width, (int *)&img->resolution.height);
 	if (!img->img)
-		return (freeOpenImg(img));
+		return (free_open_img(img));
 	img->data_addr = mlx_get_data_addr(img->img, &(img->bits_per_pixel),
 			&(img->line_size), &(img->endian));
 	if (!img->data_addr)
-		return (freeOpenImg(img));
+		return (free_open_img(img));
 	img->pixel_addr = (int *)mlx_get_data_addr(img->img, &(img->bits_per_pixel),
 			&(img->line_size), &(img->endian));
 	if (!img->pixel_addr)
-		return (freeOpenImg(img));
+		return (free_open_img(img));
 	tmp = ft_strdup(path);
 	if (!tmp)
-		return (freeOpenImg(img));
+		return (free_open_img(img));
 	return (img);
 }
 
-t_img	*openImg(void *mlx, char *path)
+t_img	*open_img(void *mlx, char *path)
 {
 	t_img	*img;
 
@@ -50,7 +50,7 @@ t_img	*openImg(void *mlx, char *path)
 	if (!img)
 		return (NULL);
 	ft_bzero(img, sizeof(t_img));
-	if (!openImgUtils(img, mlx, path))
+	if (!open_img_utils(img, mlx, path))
 		return (NULL);
 	return (img);
 }

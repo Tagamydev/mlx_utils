@@ -12,7 +12,7 @@
 
 #include "mlx_utils.h"
 
-void	fillImg(t_img *img, t_color color)
+void	fill_img(t_img *img, t_color color)
 {
 	unsigned int	i;
 	unsigned int	j;
@@ -24,7 +24,7 @@ void	fillImg(t_img *img, t_color color)
 		j = 0;
 		while (j != img->resolution.width)
 		{
-			putPixel(img, colorPoint(point(j, i), color));
+			put_pixel(img, color_point(point(j, i), color));
 			++j;
 		}
 		i++;

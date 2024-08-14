@@ -17,6 +17,6 @@
 # include "libft.h"
 # include "image.h"
 
-void	putPixel(t_img *img, t_point pixel);
+void	put_pixel(t_img *img, t_point pixel);
 
 #endif

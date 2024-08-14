@@ -30,6 +30,6 @@ typedef struct s_bb{
 	t_line	line;
 }				t_bb;
 
-void	drawLine(t_point f, t_point s, t_img *map_display);
+void	draw_line(t_point f, t_point s, t_img *map_display);
 
 #endif
