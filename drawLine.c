@@ -65,7 +65,7 @@ static void	bb_init(t_bb *bb, t_point f, t_point s)
 
 void	ft_draw_pixel(t_point pt, t_img *img)
 {
-	put_pixel(img, point(pt.px, pt.py));
+	put_pixel(img, pt);
 }
 
 void	draw_line(t_point f, t_point s, t_img *map_display)
