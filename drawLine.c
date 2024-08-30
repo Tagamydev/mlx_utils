@@ -12,12 +12,34 @@
 
 #include "mlx_utils.h"
 
+float	ft_distance_2_points(t_point a, t_point b)
+{
+	float	x;
+	float	y;
+
+	x = pow((b.px - a.px), 2);
+	y = pow((b.py - a.py), 2);
+	return (sqrt(x + y));
+}
+
+t_color	color_degradade(t_point init, t_point end, t_point current)
+{
+	float	total_distance;
+	float	actual_distance;
+	float	result;
+
+	total_distance = ft_distance_2_points(init, end);
+	actual_distance = ft_distance_2_points(init, current);
+	result = actual_distance / total_distance;
+	return (color_mix(init.color, end.color, result));
+}
+
 static void	ft_clone(t_point *point, t_line line, int x, int y)
 {
 	point->px = x;
 	point->py = y;
 	(void)line;
-	//point->color = ft_color_degradade(line.a, line.b, *point);
+	point->color = color_degradade(line.a, line.b, *point);
 }
 
 static void	bb_init(t_bb *bb, t_point f, t_point s)
